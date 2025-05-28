@@ -1,0 +1,2232 @@
+/* Estilos Gerais (Mantidos) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to right, rgba(90, 119, 150, 0.9), rgba(90, 119, 150, 0.5)), url('cabecalho.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex; /* Adicionado para centralizar conteúdo verticalmente em mobile */
+  flex-direction: column; /* Adicionado */
+  justify-content: space-between; /* Adicionado para empurrar nav para cima e hero-content para o meio/baixo */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 60px;
+  background-color: white;
+  width: 100%; /* Garante que a navbar ocupe a largura total */
+}
+
+.logo {
+  height: 70px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  transition: color 0.3s ease; /* Transição para o hover */
+}
+
+/* Efeito de Hover para os links do menu */
+.nav-links a:hover {
+  color: #014579; /* Cor mais escura ao passar o mouse */
+}
+
+.hero-content {
+  position: absolute; /* Mantenho absolute para posicionamento fino, mas ajustaremos no mobile */
+  top: 60%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  z-index: 10; /* Garante que fique acima da imagem de fundo */
+  padding: 0 20px; /* Adiciona padding para telas pequenas */
+}
+
+.title, .subtitle {
+  font-size: 119px;
+  font-family: 'Anton', sans-serif; /* Usando Anton que você importou, fica mais impactante */
+  font-weight: bold;
+  line-height: 0.9; /* Ajusta o espaçamento entre as linhas dos títulos */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Sombra para o texto */
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif; /* Subtitle pode ser Montserrat para contraste */
+  font-size: 90px; /* Um pouco menor para dar destaque ao título */
+  margin-top: 10px;
+}
+
+.phone-button {
+  margin-top: 50px; /* Ajuste para melhor espaçamento */
+  display: flex;
+  align-items: center;
+  background-color: #014579;
+  padding: 15px 50px;
+  border-radius: 70px;
+  font-size: 24px;
+  font-weight: bold;
+  width: fit-content;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transição para o hover */
+}
+
+.phone-button a { /* Estilizando o link dentro do botão */
+    text-decoration: none;
+    color: white;
+    display: flex; /* Para alinhar img e span dentro do link */
+    align-items: center;
+}
+
+.phone-button img {
+  height: 32px;
+  margin-right: 12px;
+}
+
+/* Efeito de Hover para o botão */
+.phone-button:hover {
+    transform: translateY(-5px); /* Move o botão um pouco para cima */
+    background-color: #003366; /* Escurece um pouco a cor de fundo */
+    cursor: pointer;
+}
+
+
+/* --- Media Queries para Responsividade --- */
+
+/* Esconde o botão de hamburguer em telas maiores */
+.menu-toggle {
+  display: none;
+}
+
+/* Estilos para telas menores que 992px (Desktop pequeno, tablets grandes) */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 5px 30px; /* Reduz padding da navbar */
+  }
+
+  .nav-links {
+    gap: 25px; /* Reduz espaçamento entre links */
+  }
+
+  .nav-links a {
+    font-size: 18px; /* Reduz tamanho da fonte */
+  }
+
+  .hero-content {
+    top: 55%; /* Ajusta posição */
+    left: 40%; /* Ajusta posição */
+    transform: translate(-50%, -50%);
+  }
+
+  .title, .subtitle {
+    font-size: 90px; /* Reduz o tamanho dos títulos */
+  }
+
+  .subtitle {
+      font-size: 70px;
+  }
+
+  .phone-button {
+    padding: 12px 40px; /* Reduz padding do botão */
+    font-size: 20px; /* Reduz tamanho da fonte do botão */
+    margin-top: 30px;
+  }
+
+  .phone-button img {
+    height: 28px; /* Reduz tamanho do ícone */
+  }
+}
+
+/* Estilos para telas menores que 768px (Tablets e celulares maiores) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap; /* Permite que os itens da navbar quebrem para a próxima linha se não houver espaço */
+    padding: 10px 20px; /* Ajusta padding */
+  }
+
+  .logo {
+    height: 60px; /* Diminui o logo */
+  }
+
+  /* Exibe o botão de hamburguer */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 20; /* Garante que o botão esteja acima do menu */
+  }
+
+  .menu-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Estilos para o menu quando ele está aberto (hamburguer animado) */
+  .menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Estilos do menu de navegação no mobile */
+  /* Estilos do menu de navegação no mobile */
+#nav-links-list { /* AGORA ESTÁ SELECIONANDO O ID DA UL */
+    display: none; /* CRÍTICO: Esconde a lista de links por padrão em mobile */
+    position: absolute; /* Mantenha o position absolute */
+    top: 70px; /* Ajuste para a altura da sua navbar */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px); /* Ocupa o resto da altura da tela */
+    background-color: rgba(255, 255, 255, 0.98); /* Fundo branco com um pouco mais de opacidade */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%); /* Esconde para a direita */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Animação */
+    z-index: 15;
+    overflow-y: auto; /* Adiciona scroll se o menu for muito grande */
+}
+
+#nav-links-list.active { /* Classe adicionada por JavaScript */
+    display: flex; /* Mostra o menu quando ativo */
+    transform: translateX(0); /* Desliza para a posição visível */
+}
+
+/* Opcional: Ajustar espaçamento dos itens e links dentro do menu mobile */
+#nav-links-list li {
+    margin: 20px 0; /* Espaçamento entre os itens do menu */
+}
+
+#nav-links-list a {
+    font-size: 28px; /* Aumenta o tamanho da fonte para melhor usabilidade no mobile */
+    color: #014579; /* Cor do texto no menu mobile */
+    display: block; /* Garante que o link preencha a área clicável */
+    padding: 10px 0; /* Adiciona um padding para a área clicável */
+}
+
+  /* Ajusta o hero-content para mobile */
+  .hero-content {
+    position: static; /* Remove o posicionamento absoluto para que ele flua normalmente */
+    transform: none; /* Remove a transformação */
+    text-align: center; /* Centraliza o texto */
+    margin: auto; /* Centraliza horizontalmente */
+    padding: 0 15px; /* Mais padding para o conteúdo */
+    flex-grow: 1; /* Permite que o conteúdo cresça para ocupar espaço */
+    display: flex; /* Para organizar os elementos internamente */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title, .subtitle {
+    font-size: 70px; /* Reduz mais os títulos */
+    line-height: 1;
+  }
+
+  .subtitle {
+    font-size: 55px;
+    margin-top: 0;
+  }
+
+  .phone-button {
+    margin-top: 40px; /* Ajusta espaçamento */
+    padding: 10px 30px; /* Reduz padding */
+    font-size: 18px; /* Reduz fonte */
+  }
+
+  .phone-button img {
+    height: 24px; /* Reduz ícone */
+  }
+}
+
+/* Estilos para telas muito pequenas (celulares menores) */
+@media (max-width: 480px) {
+  .logo {
+    height: 50px;
+  }
+
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .hero-content {
+      padding: 0 10px;
+  }
+
+  .title, .subtitle {
+    font-size: 50px; /* Reduz ainda mais os títulos */
+  }
+
+  .subtitle {
+      font-size: 40px;
+  }
+
+  .phone-button {
+    padding: 8px 25px;
+    font-size: 16px;
+  }
+
+  .phone-button img {
+    height: 20px;
+  }
+}
+
+/* Imagens responsivas (regra geral) */
+img {
+  max-width: 100%; /* Garante que a imagem nunca exceda a largura do seu contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  display: block; /* Remove espaços extras embaixo de imagens */
+}
+
+/* Estilos Gerais (se tiver, mantenha o que já existe) */
+body {
+    margin: 0; /* Garante que não haja margem padrão no body */
+    font-family: 'Montserrat', sans-serif; /* Define uma fonte padrão para o corpo, se desejar */
+}
+
+/* Seção de Serviços */
+.servicos {
+    background-color: #ffffff;
+    padding: 80px 0; /* Padding vertical padrão para desktop */
+    text-align: center;
+}
+
+.servicos-container {
+    display: flex;
+    justify-content: center;
+    gap: 280px; /* Espaço entre as caixas em telas grandes */
+    flex-wrap: wrap; /* Permite que as caixas quebrem para a próxima linha */
+    max-width: 1200px; /* Limita a largura do container */
+    margin: 0 auto; /* Centraliza o container */
+}
+
+.servico-box {
+    background-color: #524d55;
+    border-radius: 12px;
+    position: relative;
+    padding: 80px 25px 20px 25px; /* Padding ajustado para o círculo */
+    width: 380px; /* Largura fixa para desktop */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Adicionado transição para hover */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 70px; /* Espaço abaixo de cada caixa para quando elas quebrarem a linha */
+}
+
+/* Efeito de Hover para a caixa de serviço */
+.servico-box:hover {
+    transform: translateY(-10px); /* Move a caixa para cima */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta a sombra */
+}
+
+/* Estilo para a div azul externa */
+.icon-circle-blue {
+    background-color: #2e98db;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    top: -70px; /* Metade da altura para posicionar no topo */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para a div branca interna */
+.icon-circle-white {
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px;
+}
+
+/* Estilo para a imagem dentro da div branca */
+.icon-circle-white img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+/* Estilo do título do serviço */
+.titulo-servico {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 5px; /* Mantém este ajuste para o espaço abaixo do círculo */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    text-transform: uppercase;
+}
+
+/* Estilo do texto do serviço */
+.texto-servico {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: white;
+    text-align: center;
+}
+
+/* Estilo da faixa azul destaque */
+.frase-destaque {
+    background-color: #13385a;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 100px 40px; /* Ajuste o padding para dar mais espaço */
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    /* Removido o margin-top negativo. Vamos gerenciar o espaçamento com padding/margin normal. */
+    margin-top: 0; /* Remove qualquer margin-top negativo */
+    position: relative; /* Para garantir que o z-index funcione se houver sobreposição */
+    z-index: 1; /* Garante que ela não fique por baixo de algo */
+    line-height: 1.5;
+}
+
+/* --- Media Queries para Responsividade da Seção de Serviços --- */
+
+/* Telas menores que 992px (Desktop pequeno, tablets grandes) */
+@media (max-width: 992px) {
+    .servicos-container {
+        gap: 80px; /* Reduz o espaço entre as caixas */
+        padding: 0 20px; /* Adiciona padding lateral para o container */
+    }
+
+    .servico-box {
+        width: 320px; /* Reduz a largura da caixa de serviço */
+        padding: 70px 20px 20px 20px; /* Ajusta padding */
+        margin-bottom: 60px; /* Ajusta margin-bottom */
+    }
+
+    .icon-circle-blue {
+        width: 120px; /* Reduz o círculo azul */
+        height: 120px;
+        top: -60px; /* Ajusta o top pela metade da nova altura */
+    }
+
+    .icon-circle-white {
+        width: 100px; /* Reduz o círculo branco */
+        height: 100px;
+        padding: 10px; /* Ajusta padding */
+    }
+
+    .titulo-servico {
+        font-size: 22px; /* Reduz o tamanho do título */
+    }
+
+    .texto-servico {
+        font-size: 14px; /* Reduz o tamanho do texto */
+    }
+
+    .frase-destaque {
+        font-size: 20px; /* Ajusta o tamanho da fonte da frase */
+        padding: 80px 30px; /* Ajusta padding */
+    }
+}
+
+/* Telas menores que 768px (Tablets e celulares maiores) */
+@media (max-width: 768px) {
+    .servicos {
+        padding: 60px 0; /* Reduz o padding geral da seção */
+    }
+
+    .servicos-container {
+        flex-direction: column; /* Caixas empilham verticalmente */
+        align-items: center; /* Centraliza as caixas empilhadas */
+        gap: 70px; /* Espaço entre as caixas empilhadas */
+    }
+
+    .servico-box {
+        width: 90%; /* Ocupa 90% da largura da tela */
+        max-width: 350px; /* Limita a largura máxima para não ficar muito grande em tablets */
+        margin-bottom: 0; /* Não precisa de margin-bottom se o gap for suficiente */
+    }
+
+    .icon-circle-blue {
+        width: 100px; /* Reduz mais o círculo azul */
+        height: 100px;
+        top: -50px;
+    }
+
+    .icon-circle-white {
+        width: 80px; /* Reduz mais o círculo branco */
+        height: 80px;
+        padding: 8px;
+    }
+
+    .titulo-servico {
+        font-size: 20px;
+        margin-top: 0; /* Pode remover o margin-top se o círculo já estiver bem posicionado */
+    }
+
+    .texto-servico {
+        font-size: 13px;
+    }
+
+    .frase-destaque {
+        font-size: 18px; /* Reduz ainda mais a fonte da frase */
+        padding: 60px 20px; /* Reduz padding */
+    }
+}
+
+/* Telas menores que 480px (Celulares) */
+@media (max-width: 480px) {
+    .servicos {
+        padding: 40px 0;
+    }
+
+    .servicos-container {
+        gap: 50px; /* Espaço menor entre as caixas */
+    }
+
+    .servico-box {
+        width: 95%; /* Ocupa mais da largura da tela */
+        max-width: 300px; /* Limita a largura máxima */
+    }
+
+    .icon-circle-blue {
+        width: 90px;
+        height: 90px;
+        top: -45px;
+    }
+
+    .icon-circle-white {
+        width: 70px;
+        height: 70px;
+        padding: 7px;
+    }
+
+    .titulo-servico {
+        font-size: 18px;
+    }
+
+    .texto-servico {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .frase-destaque {
+        font-size: 16px;
+        padding: 40px 15px;
+    }
+}
+
+/* ===================================== */
+/* SEÇÃO: SOBRE NÓS                      */
+/* ===================================== */
+
+/* Container principal da seção Sobre Nós */
+.sobre-nos-section {
+    background-color: #ffffff;
+    padding: 60px 20px; /* Espaço interno da seção (topo/base e laterais) */
+    max-width: 1200px; /* Limita a largura do conteúdo central */
+    margin: 0 auto; /* Centraliza a seção na página */
+    text-align: center; /* Centraliza o título principal e outros elementos por padrão */
+}
+
+/* Título principal "SOBRE NÓS:" */
+.titulo-sobre {
+    font-family: 'Anton', sans-serif;
+    color: #428ce2;
+    font-size: 55px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-align: left; /* Alinha o título à esquerda */
+}
+
+/* Subtítulo "Compromisso, qualidade e confiança." */
+.subtitulo-sobre {
+    font-family: 'Montserrat', sans-serif;
+    color: #0f2f76;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 40px; /* Aumenta o espaço abaixo do subtítulo */
+    text-align: left;
+}
+
+/* NOVO CONTAINER para a parte principal (texto à esquerda, imagem à direita) */
+.sobre-conteudo-principal {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px; /* Espaço entre o bloco de texto e a imagem */
+    text-align: left; /* Garante que o texto dentro do container alinhe à esquerda */
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+    justify-content: center; /* Centraliza os itens quando eles quebram para baixo */
+}
+
+/* NOVO CONTAINER para o texto e a lista */
+.sobre-texto-e-lista {
+    flex: 1; /* Permite que este container cresça e ocupe o espaço disponível */
+    min-width: 300px; /* Garante que ele não fique muito pequeno em telas pequenas */
+    max-width: 650px; /* Limita a largura máxima do texto, para não esticar demais */
+}
+
+/* Texto base do parágrafo explicativo */
+.texto-sobre {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #000000;
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+}
+
+/* === IMAGEM do técnico (container-banner já existe) === */
+.container-banner {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    width: 500px; /* Largura do container da imagem para desktop */
+    max-width: 100%; /* Garante que não estoure em telas muito pequenas */
+    height: auto;
+    margin: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.imagem-tecnico {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Quadrado com 10% dentro */
+.desconto-box {
+    position: absolute;
+    top: -40px;
+    left: -15px;
+    background-color: #2e98db;
+    color: white;
+    padding: 40px 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    /* width: 100px; Removido para o padding definir a largura */
+    max-height: 60px;
+    font-family: 'Barlow Condensed', sans-serif;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    /* Adicionado transição para o hover */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efeito de Hover para a caixa de desconto */
+.desconto-box:hover {
+    transform: scale(1.05); /* Leve aumento de tamanho */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Sombra mais pronunciada */
+}
+
+
+.desconto-texto-secundario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0px;
+}
+
+.desconto-box .dez {
+    font-family: 'Six Caps', sans-serif;
+    font-size: 60px;
+    color: #ffffff;
+    line-height: 0.8;
+}
+
+.desconto-box .porcentagem {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.desconto-box .off {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #40dfaf;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.desconto-box .avista {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    color: #ffffff;
+    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 0.8;
+}
+
+/* === Lista de cidades atendidas === */
+.lista-cidades {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px 30px;
+}
+
+.lista-cidades li::before {
+    content: '● ';
+    color: #2e98db;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.lista-cidades li {
+    font-family: 'Anton', sans-serif;
+    color: #0f2f76;
+    font-size: 21px;
+    margin: 0;
+    /* Ajuste para ter 2 colunas no desktop e 1 no mobile, o flex-basis ajuda nisso */
+    flex: 1 1 calc(50% - 15px); /* Dois itens por linha com gap de 30px */
+    max-width: calc(50% - 15px);
+    text-align: left;
+    white-space: nowrap; /* Impede que o texto quebre para a próxima linha */
+    min-width: 150px; /* Garante que os itens não fiquem muito pequenos */
+}
+
+/* === Frase de contato (WhatsApp) === */
+.contato-frase {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    text-align: center;
+    font-size: 25px;
+    margin: 60px auto 20px auto;
+    max-width: 610px;
+}
+
+/* === Botão do WhatsApp === */
+.botao-whatsapp {
+    background-color: #014579;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif; /* Ajustado para Barlow Condensed, se não tiver Lovelo */
+    font-size: 30px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 50px auto;
+    text-decoration: none;
+    max-width: 310px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transição para o hover */
+}
+
+/* Efeito de Hover para o botão WhatsApp */
+.botao-whatsapp:hover {
+    transform: translateY(-3px); /* Leve movimento para cima */
+    background-color: #003366; /* Escurece a cor de fundo */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Sombra mais pronunciada */
+}
+
+/* === Ícone do WhatsApp dentro do botão === */
+.botao-whatsapp img {
+    height: 35px;
+    margin-right: 10px;
+}
+
+/* === SEÇÃO FINAL COM TRÊS QUADRADOS === */
+.secao-inferior {
+    display: flex;
+    margin-top: 30px;
+    gap: 0; /* Removido o gap para que os quadrados se encaixem perfeitamente no desktop */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* === Quadrado: Atendimento rápido === */
+.atendimento {
+    background-color: #13385a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Faz os quadrados tentarem ocupar o mesmo espaço */
+    min-width: 250px;
+    padding: 60px 0px;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* Adicionando transição para hover */
+    transition: background-color 0.3s ease;
+}
+
+/* === Quadrado: Horários Flexíveis === */
+.horarios {
+    background-color: #2e98db;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    flex: 1;
+    min-width: 250px;
+    padding: 60px 0px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* Adicionando transição para hover */
+    transition: background-color 0.3s ease;
+}
+/* === Quadrado: Peças Originais === */
+.pecas {
+    background-color: #524d55;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    flex: 1;
+    min-width: 250px;
+    padding: 60px 0px;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* Adicionando transição para hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito de Hover para os 3 quadrados da seção inferior */
+.atendimento:hover,
+.horarios:hover,
+.pecas:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Uma leve sobreposição escura */
+    /* Você pode mudar essa cor para algo que combine mais, ex:
+    .atendimento:hover { background-color: #0d2a45; }
+    .horarios:hover { background-color: #267ab9; }
+    .pecas:hover { background-color: #444046; }
+    */
+    cursor: pointer;
+}
+
+/* NOVO: Estilo para o grupo de ícone e título */
+.icon-title-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Ajustes para os ícones DENTRO do novo grupo */
+.icon-title-group img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+/* Títulos dentro dos quadrados inferiores (h4) */
+.secao-inferior h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 30px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Textos dentro dos quadrados inferiores */
+.secao-inferior p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0 20px; /* Adiciona padding lateral para o texto não colar nas bordas */
+}
+
+/* --- Media Queries para Responsividade da Seção "Sobre Nós" e Três Blocos --- */
+
+/* Telas menores que 992px (Desktop pequeno, tablets grandes) */
+@media (max-width: 992px) {
+    .sobre-nos-section {
+        padding: 50px 15px; /* Reduz padding */
+    }
+
+    .titulo-sobre {
+        font-size: 45px; /* Reduz tamanho do título */
+        text-align: center; /* Centraliza o título */
+    }
+
+    .subtitulo-sobre {
+        font-size: 20px; /* Reduz tamanho do subtítulo */
+        margin-bottom: 30px;
+        text-align: center; /* Centraliza o subtítulo */
+    }
+
+    .sobre-conteudo-principal {
+        gap: 30px; /* Reduz o espaço entre os itens */
+    }
+
+    .sobre-texto-e-lista {
+        min-width: unset; /* Remove min-width para flexibilidade */
+        max-width: 100%; /* Permite que o texto ocupe toda a largura */
+    }
+
+    .texto-sobre {
+        font-size: 18px; /* Reduz o tamanho da fonte */
+        padding: 0 10px; /* Adiciona um pequeno padding para texto */
+    }
+
+    .container-banner {
+        width: 400px; /* Reduz a largura da imagem */
+    }
+
+    .desconto-box {
+        top: -30px; /* Ajusta a posição do desconto */
+        left: -10px;
+        padding: 30px 40px; /* Reduz padding do desconto */
+    }
+
+    .desconto-box .dez {
+        font-size: 50px;
+    }
+    .desconto-box .porcentagem {
+        font-size: 18px;
+    }
+    .desconto-box .off, .desconto-box .avista {
+        font-size: 12px;
+    }
+
+    .lista-cidades {
+        justify-content: center; /* Centraliza a lista de cidades */
+        gap: 10px 20px; /* Reduz o gap */
+    }
+
+    .lista-cidades li {
+        font-size: 19px;
+        flex: 1 1 calc(50% - 10px); /* Tenta 2 colunas */
+        max-width: calc(50% - 10px);
+        text-align: center; /* Centraliza o texto da lista */
+        white-space: normal; /* Permite que o texto quebre a linha */
+        min-width: unset;
+    }
+
+    .contato-frase {
+        font-size: 22px;
+        margin: 40px auto 15px auto;
+        padding: 0 10px;
+    }
+
+    .botao-whatsapp {
+        font-size: 26px;
+        padding: 12px 25px;
+        max-width: 280px;
+    }
+    .botao-whatsapp img {
+        height: 30px;
+    }
+
+    .secao-inferior {
+        gap: 15px; /* Adiciona um gap entre os blocos */
+    }
+
+    .atendimento, .horarios, .pecas {
+        min-width: 200px; /* Garante um tamanho mínimo */
+        padding: 40px 15px;
+    }
+
+    .secao-inferior h4 {
+        font-size: 26px;
+    }
+
+    .secao-inferior p {
+        font-size: 16px;
+    }
+}
+
+/* Telas menores que 768px (Tablets e celulares maiores) */
+@media (max-width: 768px) {
+    .sobre-nos-section {
+        padding: 40px 10px;
+    }
+
+    .titulo-sobre {
+        font-size: 38px;
+    }
+
+    .subtitulo-sobre {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    .sobre-conteudo-principal {
+        flex-direction: column; /* Coloca texto e imagem um abaixo do outro */
+        align-items: center; /* Centraliza os itens */
+        gap: 30px;
+    }
+
+    .sobre-texto-e-lista {
+        order: 2; /* Faz o texto vir depois da imagem no mobile (opcional) */
+        padding: 0 10px; /* Padding para o texto */
+    }
+
+    .container-banner {
+        width: 90%; /* Ocupa 90% da largura da tela */
+        max-width: 400px; /* Limita o tamanho máximo */
+        order: 1; /* Faz a imagem vir antes do texto no mobile (opcional) */
+    }
+
+    .desconto-box {
+        top: -20px; /* Ajusta a posição do desconto */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Ajuste final para centralizar */
+        padding: 20px 30px;
+        max-height: 50px;
+    }
+
+    .desconto-box .dez {
+        font-size: 40px;
+    }
+    .desconto-box .porcentagem {
+        font-size: 16px;
+    }
+    .desconto-box .off, .desconto-box .avista {
+        font-size: 10px;
+    }
+
+
+    .lista-cidades {
+        flex-direction: column; /* Coloca as cidades em uma única coluna */
+        align-items: flex-start; /* Alinha à esquerda na coluna */
+        gap: 10px; /* Espaço entre as cidades */
+    }
+    .lista-cidades li {
+        font-size: 17px;
+        width: 100%; /* Ocupa a largura total */
+        max-width: unset; /* Remove o max-width */
+        text-align: left; /* Garante alinhamento à esquerda */
+        white-space: normal; /* Permite que o texto quebre a linha */
+    }
+
+    .contato-frase {
+        font-size: 20px;
+        margin: 30px auto 15px auto;
+    }
+
+    .botao-whatsapp {
+        font-size: 24px;
+        padding: 10px 20px;
+        max-width: 250px;
+    }
+    .botao-whatsapp img {
+        height: 28px;
+    }
+
+    .secao-inferior {
+        flex-direction: column; /* Os 3 blocos empilham */
+        align-items: center;
+        gap: 20px; /* Espaço entre os blocos empilhados */
+    }
+
+    .atendimento, .horarios, .pecas {
+        width: 90%; /* Ocupa 90% da largura da tela */
+        max-width: 350px; /* Limita o tamanho máximo */
+        padding: 30px 15px;
+    }
+
+    .secao-inferior h4 {
+        font-size: 24px;
+    }
+
+    .secao-inferior p {
+        font-size: 15px;
+    }
+}
+
+/* Telas menores que 480px (Celulares) */
+@media (max-width: 480px) {
+    .sobre-nos-section {
+        padding: 30px 10px;
+    }
+
+    .titulo-sobre {
+        font-size: 32px;
+    }
+
+    .subtitulo-sobre {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .texto-sobre {
+        font-size: 16px;
+    }
+
+    .desconto-box {
+        top: -15px; /* Ajusta mais um pouco */
+        padding: 15px 25px;
+        max-height: 45px;
+    }
+    .desconto-box .dez {
+        font-size: 35px;
+    }
+    .desconto-box .porcentagem {
+        font-size: 14px;
+    }
+    .desconto-box .off, .desconto-box .avista {
+        font-size: 9px;
+    }
+
+    .lista-cidades li {
+        font-size: 15px;
+    }
+
+    .contato-frase {
+        font-size: 18px;
+        margin: 25px auto 10px auto;
+    }
+
+    .botao-whatsapp {
+        font-size: 20px;
+        padding: 8px 15px;
+        max-width: 220px;
+    }
+    .botao-whatsapp img {
+        height: 24px;
+    }
+
+    .atendimento, .horarios, .pecas {
+        width: 95%; /* Ocupa mais da largura da tela */
+        max-width: 300px; /* Limita o tamanho máximo */
+        padding: 25px 10px;
+    }
+
+    .secao-inferior h4 {
+        font-size: 20px;
+    }
+
+    .secao-inferior p {
+        font-size: 14px;
+    }
+}
+
+/* Seção de Equipamentos */
+.equipamentos {
+  background: url('5184157.jpg') no-repeat center center/cover;
+  padding: 100px 20px; /* Padding vertical padrão para desktop */
+  text-align: center;
+  position: relative; /* Para garantir que o background cubra bem */
+  overflow: hidden; /* Garante que nada vaze */
+}
+
+/* Adiciona um overlay para o background, se desejar */
+.equipamentos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Overlay branco com 70% de opacidade */
+    z-index: 0; /* Fica abaixo do conteúdo */
+}
+
+.equipamentos .container { /* Garante que o conteúdo não fique muito esticado */
+    position: relative; /* Para que o conteúdo fique acima do overlay */
+    z-index: 1; /* Coloca o conteúdo acima do pseudo-elemento */
+    max-width: 1000px; /* Limita a largura do container para os equipamentos */
+    margin: 0 auto;
+    padding: 0 10px; /* Pequeno padding para evitar que o conteúdo cole nas bordas */
+}
+
+
+.equipamentos .titulo {
+  font-family: 'Anton', sans-serif;
+  color: #428ce2;
+  font-size: 4em; /* Mantido em 'em' para escalabilidade */
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.equipamentos .subtitulo {
+  font-family: 'Montserrat', sans-serif;
+  color: #0f2f76;
+  font-size: 1.5em; /* Mantido em 'em' para escalabilidade */
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.lista-equipamentos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px; /* Espaço entre os itens */
+  /* max-width: 800px; Removido para o flex-basis gerenciar */
+  margin: 0 auto;
+}
+
+.lista-equipamentos .item {
+  display: flex;
+  align-items: center;
+  background-color: #0f2f76;
+  padding: 10px 20px 10px 10px;
+  border-radius: 40px;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  white-space: nowrap; /* Impede que o texto quebre por padrão */
+  justify-content: flex-start;
+  position: relative;
+  padding-left: 60px; /* Aumenta o padding para o ícone flutuar */
+  min-height: 60px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adiciona sombra para profundidade */
+
+  /* Flexbox para 2 itens por linha no desktop */
+  flex: 1 1 calc(50% - 25px); /* flex-basis para 2 itens por linha, considerando o gap */
+  max-width: calc(50% - 25px); /* Garante que não ultrapasse 2 itens por linha */
+
+  /* Adicionado transição para hover */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efeito de Hover para os itens de equipamento */
+.lista-equipamentos .item:hover {
+    transform: translateY(-5px); /* Move o item um pouco para cima */
+    background-color: #1a4a82; /* Escurece um pouco a cor de fundo */
+    cursor: pointer;
+}
+
+.lista-equipamentos .icone {
+  background-color: #0f2f76; /* Mesma cor do balão, se quiser o ícone em destaque mude aqui */
+  border-radius: 20px;
+  padding: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 2px white; /* Borda branca ao redor do ícone */
+
+  position: absolute;
+  left: -25px; /* Mover para fora do balão para a esquerda */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  /* Transição para efeito de hover no ícone, se ele for interativo */
+  transition: transform 0.3s ease;
+}
+
+/* Efeito de hover no ícone dentro do item (opcional) */
+.lista-equipamentos .item:hover .icone {
+    transform: translateY(-50%) scale(1.1); /* Leve aumento de tamanho do ícone */
+}
+
+
+.lista-equipamentos .icone img {
+  width: 40px;
+  height: 40px;
+}
+
+.lista-equipamentos .item span {
+  flex-grow: 1;
+  text-align: left;
+  /* `white-space: normal;` para permitir que o texto quebre a linha no mobile */
+  white-space: normal;
+}
+
+/* --- Media Queries para Responsividade da Seção "Equipamentos" --- */
+
+/* Telas menores que 992px (Desktop pequeno, tablets grandes) */
+@media (max-width: 992px) {
+    .equipamentos {
+        padding: 80px 15px;
+    }
+
+    .equipamentos .titulo {
+        font-size: 3.5em; /* Reduz título */
+    }
+
+    .equipamentos .subtitulo {
+        font-size: 1.3em; /* Reduz subtítulo */
+    }
+
+    .lista-equipamentos {
+        gap: 30px; /* Reduz gap */
+        padding: 0 10px;
+    }
+
+    .lista-equipamentos .item {
+        font-size: 1.1em;
+        flex-basis: calc(50% - 15px); /* Mantém 2 itens por linha, ajusta o cálculo do gap */
+        max-width: calc(50% - 15px);
+        padding-left: 55px; /* Ajusta padding */
+        min-height: 55px;
+    }
+
+    .lista-equipamentos .icone {
+        left: -20px; /* Ajusta posição do ícone */
+        padding: 11px;
+    }
+
+    .lista-equipamentos .icone img {
+        width: 35px; /* Reduz ícone */
+        height: 35px;
+    }
+}
+
+/* Telas menores que 768px (Tablets e celulares maiores) */
+@media (max-width: 768px) {
+    .equipamentos {
+        padding: 60px 10px;
+    }
+
+    .equipamentos .titulo {
+        font-size: 2.8em; /* Reduz mais o título */
+    }
+
+    .equipamentos .subtitulo {
+        font-size: 1.1em; /* Reduz mais o subtítulo */
+        margin-bottom: 30px;
+    }
+
+    .lista-equipamentos {
+        flex-direction: column; /* Itens empilham verticalmente */
+        align-items: center; /* Centraliza os itens empilhados */
+        gap: 25px; /* Espaço entre os itens empilhados */
+    }
+
+    .lista-equipamentos .item {
+        font-size: 1em;
+        width: 90%; /* Ocupa 90% da largura da tela */
+        max-width: 350px; /* Limita a largura máxima */
+        padding: 10px 15px 10px 50px; /* Ajusta padding para o ícone */
+        min-height: 50px;
+        white-space: normal; /* Garante que o texto quebre a linha */
+        text-align: center; /* Centraliza o texto dentro do balão */
+        justify-content: center; /* Centraliza o conteúdo no balão */
+    }
+
+    .lista-equipamentos .icone {
+        left: -15px; /* Ajusta posição do ícone */
+        padding: 10px;
+    }
+
+    .lista-equipamentos .icone img {
+        width: 30px; /* Reduz mais o ícone */
+        height: 30px;
+    }
+
+    .lista-equipamentos .item span {
+        text-align: center; /* Centraliza o texto do item */
+    }
+}
+
+/* Telas menores que 480px (Celulares) */
+@media (max-width: 480px) {
+    .equipamentos {
+        padding: 40px 10px;
+    }
+
+    .equipamentos .titulo {
+        font-size: 2.2em;
+    }
+
+    .equipamentos .subtitulo {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .lista-equipamentos {
+        gap: 20px;
+    }
+
+    .lista-equipamentos .item {
+        font-size: 0.9em;
+        width: 95%; /* Ocupa mais da largura da tela */
+        max-width: 300px; /* Limita a largura máxima */
+        padding: 8px 10px 8px 45px; /* Ajusta padding */
+        min-height: 45px;
+    }
+
+    .lista-equipamentos .icone {
+        left: -12px;
+        padding: 8px;
+    }
+
+    .lista-equipamentos .icone img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* ===================================== */
+/* SEÇÃO: AVALIAÇÕES DE CLIENTES         */
+/* ===================================== */
+
+/* Seção principal do carrossel de avaliações */
+/* ===================================== */
+/* SEÇÃO: AVALIAÇÕES DE CLIENTES         */
+/* ===================================== */
+
+#avaliacoes-clientes {
+    background: url('fundo-texturizado-abstrato.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 95px 20px 60px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    position: relative; /* Necessário para z-index do overlay */
+    overflow: hidden; /* Garante que nada vaze */
+}
+
+/* Adiciona um overlay para o background, se desejar */
+#avaliacoes-clientes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay escuro com 40% de opacidade para melhorar contraste */
+    z-index: 0; /* Fica abaixo do conteúdo */
+}
+
+#avaliacoes-clientes .titulo {
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem;
+    color: #428ce2;
+    margin-bottom: 10px;
+    position: relative; /* Para ficar acima do overlay */
+    z-index: 1;
+}
+
+#avaliacoes-clientes .subtitulo {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 50px;
+    position: relative; /* Para ficar acima do overlay */
+    z-index: 1;
+}
+
+.carrossel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 700px; /* Largura para 2 cards no desktop */
+    margin: 0 auto;
+    z-index: 1; /* Para ficar acima do overlay */
+}
+
+.carrossel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em iOS */
+    overflow-x: scroll; /* Adiciona scroll horizontal para fallback em navegadores sem JS ou mobile */
+    scroll-snap-type: x mandatory; /* Ajuda a "travar" os slides */
+}
+
+.carrossel-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 820px; /* Largura máxima para 2 cards + botões */
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
+
+.slide {
+    display: flex;
+    gap: 30px; /* Espaço entre os cards dentro de um slide */
+    min-width: 100%; /* Cada slide ocupa a largura total do carrossel */
+    flex-shrink: 0;
+    align-items: flex-start;
+    justify-content: center;
+    scroll-snap-align: start; /* Faz o slide "grudar" no início da rolagem */
+    padding: 0 15px; /* Adiciona um pequeno padding nas laterais do slide para os cards não colarem */
+}
+
+.card {
+    background-color: white;
+    width: 310px; /* Largura fixa para os cards no desktop */
+    flex-shrink: 0; /* Garante que o card não encolha */
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    height: 300px; /* Altura fixa para os cards */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    padding: 90px 20px 40px;
+    display: flex; /* Transforma o card em flexbox */
+    flex-direction: column; /* Conteúdo empilhado */
+    justify-content: space-between; /* Espalha o conteúdo verticalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para o hover */
+}
+
+/* Efeito de Hover para os cards */
+.card:hover {
+    transform: translateY(-5px); /* Move o card um pouco para cima */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 5px solid #2e98db; /* Borda azul mais clara para combinar com o tema */
+    position: absolute;
+    top: 10px; /* Ajusta a posição para que metade da imagem fique fora do card */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f0f0f0;
+    z-index: 10;
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
+}
+
+.card h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    margin-top: 5px; /* Espaço após a imagem */
+    margin-bottom: 5px;
+    font-size: 1.15rem;
+}
+
+.estrelas {
+    color: #ffc30f; /* Cor amarela para as estrelas */
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #000;
+    text-align: justify;
+    font-size: 0.95rem;
+    margin-bottom: 10px; /* Reduz margem inferior para o texto */
+    flex-grow: 1; /* Permite que o parágrafo ocupe o espaço restante */
+    overflow: hidden; /* Esconde o texto que excede a altura */
+    display: -webkit-box; /* Para ellipsis em múltiplas linhas */
+    -webkit-line-clamp: 4; /* Limita a 4 linhas */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis; /* Adiciona reticências se o texto for cortado */
+}
+
+.data-local {
+    font-size: 0.75rem; /* Ajustado para ser um pouco mais legível */
+    color: #4b413f;
+    position: absolute;
+    bottom: 15px; /* Ajustado para ter mais espaço da borda */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; /* Impede que a data/local quebre a linha */
+}
+
+.btn-anterior,
+.btn-proximo {
+    background-color: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: #ffffff; /* Cor branca para os botões */
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.2s ease, transform 0.2s ease; /* Transição para hover */
+    z-index: 20; /* Para garantir que os botões fiquem acima do carrossel */
+    position: absolute; /* Para posicionar os botões fora do fluxo do carrossel */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centralização vertical */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* Sombra para destacar os botões */
+}
+
+.btn-anterior {
+    left: -60px; /* Posiciona à esquerda do carrossel-container */
+}
+
+.btn-proximo {
+    right: -60px; /* Posiciona à direita do carrossel-container */
+}
+
+/* Efeito de Hover para os botões do carrossel */
+.btn-anterior:hover,
+.btn-proximo:hover {
+    color: #428ce2; /* Mudar para a cor azul */
+    transform: translateY(-50%) scale(1.1); /* Leve aumento de tamanho */
+}
+
+/* --- Media Queries para Responsividade do Carrossel de Avaliações --- */
+
+/* Telas menores que 992px (Desktop pequeno, tablets grandes) */
+@media (max-width: 992px) {
+    #avaliacoes-clientes {
+        padding: 70px 15px 40px;
+    }
+
+    #avaliacoes-clientes .titulo {
+        font-size: 2.5rem;
+    }
+
+    #avaliacoes-clientes .subtitulo {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    .carrossel-container {
+        max-width: 600px; /* Ajusta a largura para caber melhor */
+    }
+
+    .slide {
+        gap: 20px; /* Reduz o espaço entre os cards */
+        padding: 0 10px;
+    }
+
+    .card {
+        width: 280px; /* Reduz a largura dos cards */
+        height: 280px; /* Ajusta a altura */
+        padding: 80px 15px 30px; /* Ajusta padding */
+    }
+
+    .card img {
+        top: 0x; /* Ajusta a posição da imagem */
+        width: 50px; /* Reduz o tamanho da imagem */
+        height: 50px;
+        border-width: 4px; /* Ajusta a borda */
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .estrelas {
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 5; /* Pode ajustar o número de linhas para caber */
+    }
+
+    .data-local {
+        font-size: 0.7rem;
+        bottom: 10px;
+    }
+
+    .btn-anterior,
+    .btn-proximo {
+        font-size: 2rem; /* Reduz o tamanho dos botões */
+        left: -40px; /* Ajusta a posição */
+        right: -40px;
+    }
+}
+
+/* Telas menores que 768px (Tablets e celulares maiores) */
+@media (max-width: 768px) {
+    #avaliacoes-clientes {
+        padding: 50px 10px 30px;
+    }
+
+    #avaliacoes-clientes .titulo {
+        font-size: 2rem;
+    }
+
+    #avaliacoes-clientes .subtitulo {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .carrossel-container {
+        max-width: 350px; /* Permite apenas 1 card visível por vez */
+    }
+
+    .slide {
+        gap: 0; /* Remove o gap entre os cards, pois será 1 por vez */
+        padding: 0; /* Remove padding lateral do slide */
+    }
+
+    .card {
+        width: 90%; /* Ocupa a maior parte da largura disponível */
+        max-width: 320px; /* Limita o tamanho máximo do card */
+        height: auto; /* Permite que a altura se ajuste ao conteúdo */
+        padding: 70px 15px 25px; /* Ajusta padding */
+        margin: 0 auto; /* Centraliza o card individualmente se houver espaço */
+    }
+
+    .card img {
+        top: 10x; /* Ajusta a posição da imagem */
+        width: 50px; /* Reduz o tamanho da imagem */
+        height: 50px;
+        border-width: 3px; /* Ajusta a borda */
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .estrelas {
+        font-size: 1rem;
+    }
+
+    .card p {
+        font-size: 0.85rem;
+        -webkit-line-clamp: unset; /* Remove o limite de linhas para mobile, texto pode fluir */
+    }
+
+    .data-local {
+        font-size: 0.65rem;
+        position: static; /* Volta para o fluxo normal */
+        transform: none; /* Remove a transformação */
+        margin-top: 10px; /* Adiciona margem acima */
+        text-align: center; /* Centraliza a data/local quando não é absolute */
+    }
+
+    /* Oculta os botões de navegação em telas muito pequenas, onde o arrastar é mais intuitivo */
+    .btn-anterior,
+    .btn-proximo {
+        display: none;
+    }
+}
+
+/* Telas menores que 480px (Celulares) */
+@media (max-width: 480px) {
+    #avaliacoes-clientes {
+        padding: 40px 10px 20px;
+    }
+
+    #avaliacoes-clientes .titulo {
+        font-size: 1.8rem;
+    }
+
+    #avaliacoes-clientes .subtitulo {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        width: 95%; /* Ocupa mais espaço em telas pequenas */
+        max-width: 280px; /* Limite menor para card */
+        padding: 60px 10px 20px; /* Ajusta padding */
+    }
+
+    .card img {
+        top: 10px;
+        width: 40px;
+        height: 40px;
+        border-width: 2px;
+    }
+
+    .card h3 {
+        font-size: 0.95rem;
+    }
+
+    .estrelas {
+        font-size: 0.95rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+
+    .data-local {
+        font-size: 0.6rem;
+    }
+}
+
+/* Correção: Mude .fabricantes para #fabricantes para corresponder ao ID no HTML */
+/* ===================================== */
+/* SEÇÃO: FABRICANTES                    */
+/* ===================================== */
+
+#fabricantes {
+  background: url('5184157.jpg') no-repeat center center/cover; /* Usando /cover para garantir que cubra */
+  padding: 100px 20px; /* Aumentado o padding vertical para mais respiro */
+  text-align: center;
+  position: relative; /* Para o overlay e z-index */
+  overflow: hidden; /* Garante que nada vaze */
+}
+
+/* Adiciona um overlay para o background, se desejar */
+#fabricantes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Overlay branco com 70% de opacidade */
+    z-index: 0; /* Fica abaixo do conteúdo */
+}
+
+.fabricantes__titulo {
+  font-family: 'Anton', sans-serif;
+  color: #428ce2;
+  font-size: 3.5em; /* Usando 'em' para escalabilidade */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  position: relative; /* Para ficar acima do overlay */
+  z-index: 1;
+}
+
+.fabricantes__subtitulo {
+  font-family: 'Montserrat', sans-serif;
+  color: #0f2f76;
+  font-size: 1.5em; /* Usando 'em' para escalabilidade */
+  font-weight: 700;
+  font-style: italic; /* Adicionado itálico para consistência com outros subtítulos */
+  margin-bottom: 50px; /* Aumentado a margem para mais espaço */
+  position: relative; /* Para ficar acima do overlay */
+  z-index: 1;
+}
+
+.fabricantes__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Ajustado o gap entre os itens */
+  max-width: 1000px; /* Aumentei a largura máxima para acomodar mais itens na linha se quiser */
+  margin: 0 auto;
+  position: relative; /* Para ficar acima do overlay */
+  z-index: 1;
+}
+
+.fabricantes__item {
+  background-color: #ffffff;
+  border: 5px solid #0f2f76;
+  border-radius: 16px;
+  padding: 15px; /* Ajustado o padding */
+  width: 200px; /* Reduzido a largura do item para caber mais */
+  height: 100px; /* Reduzido a altura do item */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15); /* Adicionado sombra para profundidade */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para o hover */
+
+  /* Flex-basis para controle responsivo do número de colunas */
+  flex: 1 1 auto; /* Permite que o item cresça e encolha */
+  min-width: 180px; /* Largura mínima para o item antes de quebrar */
+  max-width: 220px; /* Largura máxima para o item */
+}
+
+/* Efeito de Hover para os itens de fabricante */
+.fabricantes__item:hover {
+    transform: translateY(-5px) scale(1.02); /* Move o item um pouco para cima e aumenta levemente */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.25); /* Sombra mais pronunciada */
+    border-color: #428ce2; /* Mudar a cor da borda no hover */
+}
+
+.fabricantes__item img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  filter: grayscale(100%); /* Deixa as logos em preto e branco */
+  opacity: 0.7; /* Suaviza a opacidade */
+  transition: filter 0.3s ease, opacity 0.3s ease; /* Transição para o hover */
+}
+
+/* Efeito de Hover na imagem dentro do item */
+.fabricantes__item:hover img {
+    filter: grayscale(0%); /* Remove o filtro cinza no hover */
+    opacity: 1; /* Retorna a opacidade total no hover */
+}
+
+
+/* --- Media Queries para Responsividade da Seção "Fabricantes" --- */
+
+/* Telas menores que 1200px (Laptops) */
+@media (max-width: 1200px) {
+    .fabricantes__grid {
+        max-width: 900px; /* Ajusta largura para 4 colunas */
+    }
+}
+
+/* Telas menores que 992px (Desktop pequeno, tablets grandes) */
+@media (max-width: 992px) {
+    #fabricantes {
+        padding: 80px 15px;
+    }
+
+    .fabricantes__titulo {
+        font-size: 3em;
+    }
+
+    .fabricantes__subtitulo {
+        font-size: 1.3em;
+        margin-bottom: 40px;
+    }
+
+    .fabricantes__grid {
+        gap: 25px; /* Reduz o gap */
+        max-width: 700px; /* Ajusta para 3 colunas */
+    }
+
+    .fabricantes__item {
+        width: 180px; /* Ajusta a largura */
+        height: 90px; /* Ajusta a altura */
+        min-width: 160px;
+        max-width: 200px;
+        padding: 12px;
+    }
+}
+
+/* Telas menores que 768px (Tablets e celulares maiores) */
+@media (max-width: 768px) {
+    #fabricantes {
+        padding: 60px 10px;
+    }
+
+    .fabricantes__titulo {
+        font-size: 2.5em;
+    }
+
+    .fabricantes__subtitulo {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+
+    .fabricantes__grid {
+        gap: 20px; /* Reduz mais o gap */
+        max-width: 500px; /* Ajusta para 2 colunas */
+    }
+
+    .fabricantes__item {
+        width: 160px; /* Ajusta a largura */
+        height: 80px; /* Ajusta a altura */
+        min-width: 140px;
+        max-width: 180px;
+        padding: 10px;
+    }
+}
+
+/* Telas menores que 480px (Celulares) */
+@media (max-width: 480px) {
+    #fabricantes {
+        padding: 40px 10px;
+    }
+
+    .fabricantes__titulo {
+        font-size: 2em;
+    }
+
+    .fabricantes__subtitulo {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .fabricantes__grid {
+        flex-direction: column; /* Itens empilham verticalmente */
+        align-items: center; /* Centraliza os itens empilhados */
+        gap: 15px;
+        max-width: 300px; /* Ajusta para 1 coluna */
+    }
+
+    .fabricantes__item {
+        width: 90%; /* Ocupa a maior parte da largura da tela */
+        max-width: 280px; /* Limita a largura máxima */
+        height: 70px;
+        padding: 8px;
+    }
+}
+
+/* ===================================== */
+/* SEÇÃO: RODAPÉ (FOOTER)                */
+/* ===================================== */
+
+/* Estilos gerais para o rodapé */
+.site-footer {
+    background-color: #0f2f76; /* Cor de fundo principal do rodapé - Azul escuro da identidade */
+    color: white;
+    font-family: 'Montserrat', sans-serif; /* Fonte padrão para o rodapé */
+    box-sizing: border-box;
+    padding-top: 1px; /* Pequeno padding para evitar colapso de margens com o conteúdo acima */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around; /* Distribui o espaço entre as colunas */
+    align-items: flex-start; /* Alinha o conteúdo das colunas ao topo */
+    max-width: 1200px; /* Largura máxima do conteúdo do rodapé */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    flex-wrap: wrap; /* Permite que as colunas quebrem para a próxima linha em telas menores */
+    padding: 60px 20px 40px; /* Aumentado o padding vertical para mais respiro */
+}
+
+.footer-section {
+    flex: 1; /* Faz as seções tentarem ocupar o mesmo espaço */
+    min-width: 280px; /* Aumentei um pouco a largura mínima para melhor legibilidade */
+    margin-bottom: 30px; /* Aumentei o espaço entre as seções quando empilhadas */
+    text-align: center; /* Centraliza o texto dentro de cada seção */
+    padding: 0 15px; /* Adiciona um pequeno padding interno para evitar que o conteúdo cole nas bordas em telas menores */
+}
+
+/* Títulos das seções (CONTATOS, MAPA DO SITE) */
+.footer-title {
+    font-family: 'Montserrat', sans-serif; /* Mantenha Montserrat para títulos, 'Anton' para títulos grandes de seção */
+    font-weight: 700; /* Bold */
+    color: #fcfcfc; /* Use a cor azul vibrante para os títulos do rodapé */
+    font-size: 1.4em; /* Levemente maior */
+    margin-bottom: 25px; /* Mais espaço abaixo do título */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o título com o ícone */
+    text-transform: uppercase; /* Deixa em maiúsculas */
+}
+
+.footer-title .icon-title {
+    width: 32px; /* Ícone um pouco maior */
+    height: 32px;
+    margin-right: 12px; /* Mais espaço à direita do ícone */
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.3)); /* Sombra para destacar o ícone */
+}
+
+/* Listas de links e informações */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.footer-section ul li {
+    margin-bottom: 12px; /* Mais espaço entre os itens da lista */
+}
+
+.footer-section ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    display: flex; /* Para alinhar ícone e texto */
+    align-items: center; /* Alinha ícone e texto verticalmente */
+    transition: color 0.3s ease, transform 0.2s ease; /* Transição para hover */
+}
+
+.footer-section ul li a:hover {
+    color: #a0a0a0;
+    transform: translateX(5px); /* Efeito sutil de mover para a direita no hover */
+}
+
+/* Ícones dentro dos links (telefone, email) */
+.icon {
+    width: 22px; /* Levemente menor para links de contato */
+    height: 22px;
+    margin-right: 10px;
+    flex-shrink: 0; /* Garante que o ícone não encolha */
+}
+
+/* Ícones de redes sociais */
+.social-media ul {
+    display: flex;
+    flex-direction: row; /* Ícones em linha */
+    justify-content: center; /* Centraliza os ícones de redes sociais */
+    gap: 25px; /* Aumentei o espaço entre os ícones */
+    margin-top: 15px; /* Espaço acima dos ícones sociais */
+}
+
+.social-media ul li {
+    margin-bottom: 0;
+}
+
+.social-media .icon.social-icon {
+    width: 45px; /* Ícones sociais maiores e mais visíveis */
+    height: 45px;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Transição para hover */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.4)); /* Sombra para dar profundidade */
+}
+
+.social-media .icon.social-icon:hover {
+    transform: scale(1.15); /* Aumenta mais no hover */
+    filter: brightness(1.2) drop-shadow(0 0 8px rgba(0,0,0,0.6)); /* Brilho e sombra maiores */
+}
+
+
+/* Faixa de Copyright */
+.footer-bottom {
+    background-color: #13385a; /* Cor da faixa de copyright - Um tom de azul mais escuro */
+    padding: 20px 20px; /* Aumentado o padding vertical */
+    text-align: center;
+    font-family: 'Montserrat', sans-serif; /* Mudei para Montserrat para consistência */
+    font-size: 0.85em; /* Levemente menor */
+    color: #e4e3e3; /* Cor mais suave para o texto de copyright */
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0;
+    line-height: 1.5; /* Melhorar espaçamento entre linhas se o texto for longo */
+}
+
+
+/* --- Media Queries para Responsividade do Rodapé --- */
+
+/* Telas menores que 992px (Desktop pequeno, tablets grandes) */
+@media (max-width: 992px) {
+    .footer-content {
+        padding: 50px 15px 30px;
+    }
+
+    .footer-section {
+        min-width: 220px; /* Pode ser um pouco menor para caber 2 ou 3 colunas */
+        margin-bottom: 25px;
+    }
+
+    .footer-title {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+
+    .footer-title .icon-title {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .social-media .icon.social-icon {
+        width: 40px;
+        height: 40px;
+        gap: 20px;
+    }
+
+    .footer-bottom {
+        padding: 18px 15px;
+        font-size: 0.8em;
+    }
+}
+
+/* Telas menores que 768px (Tablets e celulares maiores) */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Colunas empilham verticalmente */
+        align-items: center; /* Centraliza as seções empilhadas */
+        padding: 40px 10px 20px;
+    }
+
+    .footer-section {
+        width: 90%; /* Ocupa a maior parte da largura da tela */
+        max-width: 400px; /* Limite máximo para seções empilhadas */
+        margin-bottom: 30px; /* Mais espaço entre seções empilhadas */
+    }
+
+    .footer-title {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+
+    .footer-title .icon-title {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+
+    .footer-section ul li a {
+        font-size: 0.95em;
+    }
+
+    .social-media ul {
+        gap: 15px; /* Reduz o gap entre ícones sociais */
+    }
+
+    .social-media .icon.social-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .footer-bottom {
+        padding: 15px 10px;
+        font-size: 0.75em;
+    }
+}
+
+/* Telas menores que 480px (Celulares) */
+@media (max-width: 480px) {
+    .footer-content {
+        padding: 30px 10px 15px;
+    }
+
+    .footer-section {
+        min-width: unset; /* Remove o min-width para telas muito pequenas */
+        width: 95%; /* Quase total da largura */
+        margin-bottom: 25px;
+    }
+
+    .footer-title {
+        font-size: 1em;
+        margin-bottom: 12px;
+    }
+
+    .footer-title .icon-title {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+    }
+
+    .footer-section ul li a {
+        font-size: 0.9em;
+    }
+
+    .social-media .icon.social-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer-bottom {
+        padding: 12px 10px;
+        font-size: 0.7em;
+    }
+}
+
