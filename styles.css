@@ -111,6 +111,36 @@ body {
     cursor: pointer;
 }
 
+.whatsapp-button {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #014579;
+  padding: 15px 50px;
+  border-radius: 70px;
+  font-size: 24px;
+  font-weight: bold;
+  width: fit-content;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-button a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.whatsapp-button img {
+  height: 32px;
+  margin-right: 12px;
+}
+
+.whatsapp-button:hover {
+  transform: translateY(-5px);
+  background-color: #1ebc59;
+  cursor: pointer;
+}
 
 /* --- Media Queries para Responsividade --- */
 
@@ -155,6 +185,16 @@ body {
 
   .phone-button img {
     height: 28px; /* Reduz tamanho do ícone */
+  }
+
+  .whatsapp-button {
+    padding: 12px 40px;
+    font-size: 20px;
+    margin-top: 30px;
+  }
+
+  .whatsapp-button img {
+    height: 28px;
   }
 }
 
@@ -269,6 +309,17 @@ body {
   .phone-button img {
     height: 24px; /* Reduz ícone */
   }
+
+ .whatsapp-button {
+    margin-top: 40px;
+    padding: 10px 30px;
+    font-size: 18px;
+  }
+
+  .whatsapp-button img {
+    height: 24px;
+    
+  }
 }
 
 /* Estilos para telas muito pequenas (celulares menores) */
@@ -299,6 +350,15 @@ body {
   }
 
   .phone-button img {
+    height: 20px;
+  }
+
+  .whatsapp-button {
+    padding: 8px 25px;
+    font-size: 16px;
+  }
+
+  .whatsapp-button img {
     height: 20px;
   }
 }
