@@ -65,14 +65,6 @@ body {
   padding: 0 20px; /* Adiciona padding para telas pequenas */
 }
 
-.hero-buttons-container {
-    display: flex; /* Transforma este container em um flex container */
-    gap: 20px; /* Espaço entre os botões */
-    margin-top: 50px; /* Espaço entre o subtítulo e os botões */
-    flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha em telas menores */
-    justify-content: flex-start; /* Alinha os botões à esquerda */
-}
-
 .title, .subtitle {
   font-size: 119px;
   font-family: 'Anton', sans-serif; /* Usando Anton que você importou, fica mais impactante */
@@ -88,6 +80,7 @@ body {
 }
 
 .phone-button {
+  margin-top: 50px; /* Ajuste para melhor espaçamento */
   display: flex;
   align-items: center;
   background-color: #014579;
@@ -118,35 +111,6 @@ body {
     cursor: pointer;
 }
 
-.whatsapp-button {
-  display: flex;
-  align-items: center;
-  background-color: #014579;
-  padding: 15px 50px;
-  border-radius: 70px;
-  font-size: 24px;
-  font-weight: bold;
-  width: fit-content;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.whatsapp-button a {
-  text-decoration: none;
-  color: white;
-  display: flex;
-  align-items: center;
-}
-
-.whatsapp-button img {
-  height: 32px;
-  margin-right: 12px;
-}
-
-.whatsapp-button:hover {
-  transform: translateY(-5px);
-  background-color: #1ebc59;
-  cursor: pointer;
-}
 
 /* --- Media Queries para Responsividade --- */
 
@@ -183,30 +147,14 @@ body {
       font-size: 70px;
   }
 
-.hero-buttons-container {
-    flex-direction: row; /* Mantém os botões em linha */
-    justify-content: center; /* Centraliza-os, se quiser */
-    gap: 15px; /* Ajusta o gap para telas menores */
-  }
-  
   .phone-button {
     padding: 12px 40px; /* Reduz padding do botão */
     font-size: 20px; /* Reduz tamanho da fonte do botão */
-    margin-top: 0px;
+    margin-top: 30px;
   }
 
   .phone-button img {
     height: 28px; /* Reduz tamanho do ícone */
-  }
-
-  .whatsapp-button {
-    padding: 12px 40px;
-    font-size: 20px;
-    margin-top: 0px;
-  }
-
-  .whatsapp-button img {
-    height: 28px;
   }
 }
 
@@ -312,36 +260,14 @@ body {
     margin-top: 0;
   }
 
-  .hero-buttons-container {
-    flex-direction: column; /* Empilha os botões verticalmente em mobile */
-    gap: 15px; /* Espaço entre eles */
-    width: 100%; /* Garante que o container ocupe a largura total */
-    align-items: center; /* Centraliza os botões */
-    margin-top: 30px; /* Adiciona um espaço do subtítulo */
-
   .phone-button {
-     width: 90%; /* ou max-width: 300px; para não ficarem muito largos */
-      max-width: 300px; /* Exemplo de limite */
-      padding: 10px 20px; /* Ajusta padding */
-      font-size: 18px; /* Ajusta fonte */
-      margin-top: 0; /* Remove margin-top individual */
+    margin-top: 40px; /* Ajusta espaçamento */
+    padding: 10px 30px; /* Reduz padding */
+    font-size: 18px; /* Reduz fonte */
   }
 
   .phone-button img {
     height: 24px; /* Reduz ícone */
-  }
-
- .whatsapp-button {
-     width: 90%; /* ou max-width: 300px; para não ficarem muito largos */
-      max-width: 300px; /* Exemplo de limite */
-      padding: 10px 20px; /* Ajusta padding */
-      font-size: 18px; /* Ajusta fonte */
-      margin-top: 0; /* Remove margin-top individual */
-  }
-
-  .whatsapp-button img {
-    height: 24px;
-    
   }
 }
 
@@ -367,29 +293,12 @@ body {
       font-size: 40px;
   }
 
-.hero-buttons-container {
-    gap: 10px; /* Talvez menos espaço em telas menores */
-  }
-  
   .phone-button {
-    width: 95%; /* Ou algo que se adapte melhor */
-    max-width: 250px; /* Outro exemplo de limite */
-    padding: 8px 15px;
+    padding: 8px 25px;
     font-size: 16px;
   }
 
   .phone-button img {
-    height: 20px;
-  }
-
-  .whatsapp-button {
-    width: 95%; /* Ou algo que se adapte melhor */
-    max-width: 250px; /* Outro exemplo de limite */
-    padding: 8px 15px;
-    font-size: 16px;
-  }
-
-  .whatsapp-button img {
     height: 20px;
   }
 }
@@ -2320,4 +2229,3 @@ body {
         font-size: 0.7em;
     }
 }
-
