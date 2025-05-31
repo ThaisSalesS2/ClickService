@@ -65,6 +65,14 @@ body {
   padding: 0 20px; /* Adiciona padding para telas pequenas */
 }
 
+.hero-buttons-container {
+    display: flex; /* Transforma este container em um flex container */
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 50px; /* Espaço entre o subtítulo e os botões */
+    flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha em telas menores */
+    justify-content: flex-start; /* Alinha os botões à esquerda */
+}
+
 .title, .subtitle {
   font-size: 119px;
   font-family: 'Anton', sans-serif; /* Usando Anton que você importou, fica mais impactante */
@@ -80,7 +88,6 @@ body {
 }
 
 .phone-button {
-  margin-top: 50px; /* Ajuste para melhor espaçamento */
   display: flex;
   align-items: center;
   background-color: #014579;
@@ -112,7 +119,6 @@ body {
 }
 
 .whatsapp-button {
-  margin-top: 20px;
   display: flex;
   align-items: center;
   background-color: #014579;
@@ -177,10 +183,16 @@ body {
       font-size: 70px;
   }
 
+.hero-buttons-container {
+    flex-direction: row; /* Mantém os botões em linha */
+    justify-content: center; /* Centraliza-os, se quiser */
+    gap: 15px; /* Ajusta o gap para telas menores */
+  }
+  
   .phone-button {
     padding: 12px 40px; /* Reduz padding do botão */
     font-size: 20px; /* Reduz tamanho da fonte do botão */
-    margin-top: 30px;
+    margin-top: 0px;
   }
 
   .phone-button img {
@@ -190,7 +202,7 @@ body {
   .whatsapp-button {
     padding: 12px 40px;
     font-size: 20px;
-    margin-top: 30px;
+    margin-top: 0px;
   }
 
   .whatsapp-button img {
@@ -300,10 +312,19 @@ body {
     margin-top: 0;
   }
 
+  .hero-buttons-container {
+    flex-direction: column; /* Empilha os botões verticalmente em mobile */
+    gap: 15px; /* Espaço entre eles */
+    width: 100%; /* Garante que o container ocupe a largura total */
+    align-items: center; /* Centraliza os botões */
+    margin-top: 30px; /* Adiciona um espaço do subtítulo */
+
   .phone-button {
-    margin-top: 40px; /* Ajusta espaçamento */
-    padding: 10px 30px; /* Reduz padding */
-    font-size: 18px; /* Reduz fonte */
+     width: 90%; /* ou max-width: 300px; para não ficarem muito largos */
+      max-width: 300px; /* Exemplo de limite */
+      padding: 10px 20px; /* Ajusta padding */
+      font-size: 18px; /* Ajusta fonte */
+      margin-top: 0; /* Remove margin-top individual */
   }
 
   .phone-button img {
@@ -311,9 +332,11 @@ body {
   }
 
  .whatsapp-button {
-    margin-top: 40px;
-    padding: 10px 30px;
-    font-size: 18px;
+     width: 90%; /* ou max-width: 300px; para não ficarem muito largos */
+      max-width: 300px; /* Exemplo de limite */
+      padding: 10px 20px; /* Ajusta padding */
+      font-size: 18px; /* Ajusta fonte */
+      margin-top: 0; /* Remove margin-top individual */
   }
 
   .whatsapp-button img {
@@ -344,8 +367,14 @@ body {
       font-size: 40px;
   }
 
+.hero-buttons-container {
+    gap: 10px; /* Talvez menos espaço em telas menores */
+  }
+  
   .phone-button {
-    padding: 8px 25px;
+    width: 95%; /* Ou algo que se adapte melhor */
+    max-width: 250px; /* Outro exemplo de limite */
+    padding: 8px 15px;
     font-size: 16px;
   }
 
@@ -354,7 +383,9 @@ body {
   }
 
   .whatsapp-button {
-    padding: 8px 25px;
+    width: 95%; /* Ou algo que se adapte melhor */
+    max-width: 250px; /* Outro exemplo de limite */
+    padding: 8px 15px;
     font-size: 16px;
   }
 
