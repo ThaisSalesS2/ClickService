@@ -79,8 +79,17 @@ body {
   margin-top: 10px;
 }
 
-.phone-button {
-  margin-top: 50px; /* Ajuste para melhor espaçamento */
+/* Container para os botões de telefone e WhatsApp */
+.hero-buttons-container {
+  display: flex; /* Faz com que os botões fiquem lado a lado */
+  gap: 20px; /* Espaçamento entre os botões */
+  margin-top: 50px; /* Mesma margem superior do antigo phone-button */
+  flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha em telas pequenas */
+  justify-content: flex-start; /* Alinha os botões à esquerda no desktop */
+}
+
+.phone-button,
+.whatsapp-button {
   display: flex;
   align-items: center;
   background-color: #014579;
@@ -88,27 +97,30 @@ body {
   border-radius: 70px;
   font-size: 24px;
   font-weight: bold;
-  width: fit-content;
+  width: fit-content; /* Faz com que o botão tenha a largura do conteúdo */
   transition: transform 0.3s ease, background-color 0.3s ease; /* Transição para o hover */
 }
 
-.phone-button a { /* Estilizando o link dentro do botão */
-    text-decoration: none;
-    color: white;
-    display: flex; /* Para alinhar img e span dentro do link */
-    align-items: center;
+.phone-button a,
+.whatsapp-button a { /* Estilizando os links dentro dos botões */
+  text-decoration: none;
+  color: white;
+  display: flex; /* Para alinhar img e span dentro do link */
+  align-items: center;
 }
 
-.phone-button img {
+.phone-button img,
+.whatsapp-button img {
   height: 32px;
   margin-right: 12px;
 }
 
-/* Efeito de Hover para o botão */
-.phone-button:hover {
-    transform: translateY(-5px); /* Move o botão um pouco para cima */
-    background-color: #003366; /* Escurece um pouco a cor de fundo */
-    cursor: pointer;
+/* Efeito de Hover para os botões */
+.phone-button:hover,
+.whatsapp-button:hover {
+  transform: translateY(-5px); /* Move o botão um pouco para cima */
+  background-color: #003366; /* Escurece um pouco a cor de fundo */
+  cursor: pointer;
 }
 
 
@@ -147,13 +159,15 @@ body {
       font-size: 70px;
   }
 
-  .phone-button {
-    padding: 12px 40px; /* Reduz padding do botão */
-    font-size: 20px; /* Reduz tamanho da fonte do botão */
-    margin-top: 30px;
+  /* Ajusta os botões em telas menores */
+  .phone-button,
+  .whatsapp-button {
+    padding: 12px 40px; /* Reduz padding dos botões */
+    font-size: 20px; /* Reduz tamanho da fonte dos botões */
   }
 
-  .phone-button img {
+  .phone-button img,
+  .whatsapp-button img {
     height: 28px; /* Reduz tamanho do ícone */
   }
 }
@@ -201,8 +215,7 @@ body {
   }
 
   /* Estilos do menu de navegação no mobile */
-  /* Estilos do menu de navegação no mobile */
-#nav-links-list { /* AGORA ESTÁ SELECIONANDO O ID DA UL */
+  #nav-links-list { /* AGORA ESTÁ SELECIONANDO O ID DA UL */
     display: none; /* CRÍTICO: Esconde a lista de links por padrão em mobile */
     position: absolute; /* Mantenha o position absolute */
     top: 70px; /* Ajuste para a altura da sua navbar */
@@ -217,24 +230,24 @@ body {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Animação */
     z-index: 15;
     overflow-y: auto; /* Adiciona scroll se o menu for muito grande */
-}
+  }
 
-#nav-links-list.active { /* Classe adicionada por JavaScript */
+  #nav-links-list.active { /* Classe adicionada por JavaScript */
     display: flex; /* Mostra o menu quando ativo */
     transform: translateX(0); /* Desliza para a posição visível */
-}
+  }
 
-/* Opcional: Ajustar espaçamento dos itens e links dentro do menu mobile */
-#nav-links-list li {
+  /* Opcional: Ajustar espaçamento dos itens e links dentro do menu mobile */
+  #nav-links-list li {
     margin: 20px 0; /* Espaçamento entre os itens do menu */
-}
+  }
 
-#nav-links-list a {
+  #nav-links-list a {
     font-size: 28px; /* Aumenta o tamanho da fonte para melhor usabilidade no mobile */
     color: #014579; /* Cor do texto no menu mobile */
     display: block; /* Garante que o link preencha a área clicável */
     padding: 10px 0; /* Adiciona um padding para a área clicável */
-}
+  }
 
   /* Ajusta o hero-content para mobile */
   .hero-content {
@@ -260,13 +273,24 @@ body {
     margin-top: 0;
   }
 
-  .phone-button {
-    margin-top: 40px; /* Ajusta espaçamento */
-    padding: 10px 30px; /* Reduz padding */
-    font-size: 18px; /* Reduz fonte */
+  /* No mobile, os botões devem ficar um embaixo do outro e centralizados */
+  .hero-buttons-container {
+    flex-direction: column; /* Empilha os botões verticalmente */
+    align-items: center; /* Centraliza os botões */
+    gap: 15px; /* Ajusta o espaçamento vertical entre eles */
+    margin-top: 40px; /* Ajusta espaçamento superior para o container */
   }
 
-  .phone-button img {
+  .phone-button,
+  .whatsapp-button {
+    padding: 10px 30px; /* Reduz padding */
+    font-size: 18px; /* Reduz fonte */
+    width: 100%; /* Faz com que os botões ocupem a largura total disponível */
+    max-width: 300px; /* Limita a largura máxima para não ficarem muito grandes em tablets */
+  }
+
+  .phone-button img,
+  .whatsapp-button img {
     height: 24px; /* Reduz ícone */
   }
 }
@@ -293,12 +317,19 @@ body {
       font-size: 40px;
   }
 
-  .phone-button {
-    padding: 8px 25px;
-    font-size: 16px;
+  .hero-buttons-container {
+    gap: 10px; /* Reduz o espaçamento vertical entre eles para telas muito pequenas */
   }
 
-  .phone-button img {
+  .phone-button,
+  .whatsapp-button {
+    padding: 8px 25px;
+    font-size: 16px;
+    max-width: 250px; /* Reduz a largura máxima para celulares menores */
+  }
+
+  .phone-button img,
+  .whatsapp-button img {
     height: 20px;
   }
 }
